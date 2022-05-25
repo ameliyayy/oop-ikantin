@@ -32,8 +32,7 @@ $jumlah = new Jumlah();
 <div class="collapse navbar-collapse" id="navbar">
     <ul class="nav navbar-nav">
         <li class="active"><a href="index.php"><i class="fa fa-home"></i> Beranda</a> </li>
-        <li><a href="#" data-toggle="modal" data-target="#buy">
-        <i class="fa fa-shopping-cart"></i> Beli</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#buy"><i class="fa fa-shopping-cart"></i> Beli</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li><a href="#"></a></li>
@@ -56,8 +55,7 @@ $jumlah = new Jumlah();
     <div class="panel-body">
         <div class="container">
     <div class="col-md-10">
-        <h4>Klik disini untuk pembelian <button type="button" class="btn btn-success"
-        name="button" data-toggle="modal" data-target="#buy">
+        <h4>Klik disini untuk pembelian <button type="button" class="btn btn-success" name="button" data-toggle="modal" data-target="#buy">
         <i class="fa fa-shopping-cart"></i> Beli </button></h4>
 </div>
 </div>
@@ -71,12 +69,12 @@ $jumlah = new Jumlah();
     if (isset($_POST['check'])){
         $jmlbakso = $_POST['bakso'];
         $jmlPc = $_POST['bakwan'];
-        if ($jmlbakso == null){
-            $jumlah->getJumlah(0,$jmlPc);
-        } elseif ($jmlPc == null){
-            $jumlah->getJumlah($jmlbakso,0);
+        if ($jmlPc == null){
+            $jumlah->getJumlah(0,$jmlbakso);
+        } elseif ($jmlbakso == null){
+            $jumlah->getJumlah($jmlPc,0);
         } else {
-            $jumlah->getJumlah($jmlbakso,$jmlPc);
+            $jumlah->getJumlah($jmlPc,$jmlbakso);
         }
     
     $jumlah->setHarga();
@@ -100,7 +98,6 @@ $jumlah = new Jumlah();
         <h4 class="modal-title" id="">Form Pembelian</h4>
 </div>
 
-
 <div class="modal-body">
     <form class="form-group" action="" method="post">
 <div class="input-group">
@@ -115,8 +112,8 @@ $jumlah = new Jumlah();
 
 </div>
 <div class="modal-footer">
-    <button type="button" id="btnbakso" onclick="Onlybakso()" class="btn btn-success" style="float:left;">Bakwan</button>
-    <button type="button" id="btnbakso" onclick="Onlybakwan()" class="btn btn-success" style="float:left;">Bakso</button>
+    <button type="button" id="btnbakwan" onclick="Onlybakwan()" class="btn btn-success" style="float:left;">Bakwan</button>
+    <button type="button" id="btnbakso" onclick="Onlybakso()" class="btn btn-success" style="float:left;">Bakso</button>
        <button type="button" onclick="Keduanya()" class="btn btn-success" style="float:left;">Bakwan & Bakso</button>
     <button type="button" onclick="exit()" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
     <button type="submit" class="btn btn-primary" name="check"><i class="fa fa-check"></i>Cek Total  </button>
